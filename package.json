@@ -1,7 +1,7 @@
 {
   "name": "select-scope",
   "main": "./lib/select-scope",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Select successively increasing code blocks",
   "activationEvents": [
     "select-scope:select-more"
