@@ -1,0 +1,13 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Enable select-scope': 'select-scope:toggle'
+
+'menu': [
+  {
+    'label': 'Selection'
+    'submenu': [
+      { 'label': 'Select scope', 'command': 'select-scope:select-more' }
+    ]
+  }
+]
