@@ -12,14 +12,11 @@ module.exports =
 
     # Go outward from the innermost scope and select the first one that includes unselected text
     scopes = scopes.slice().reverse()
-    console.log(scopes)
 
     for scope in scopes
       scopeRange = editor.bufferRangeForScopeAtCursor(scope)
-      console.log "  '#{scope}': (#{scopeRange.start.row}, #{scopeRange.start.column}) - (#{scopeRange.end.row}, #{scopeRange.end.column})"
 
       if containsRange(scopeRange, selectionRange) && !sameRange(scopeRange, selectionRange)
-        console.log "  chose '#{scope}'"
         editor.setSelectedBufferRange(scopeRange)
         return
 
