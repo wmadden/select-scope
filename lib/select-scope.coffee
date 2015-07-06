@@ -1,10 +1,10 @@
 module.exports =
   activate: (state) ->
-    atom.workspaceView.command "select-scope:select-more", => @selectMore()
+    atom.commands.add "atom-workspace", "select-scope:select-more", => @selectMore()
 
   selectMore: ->
-    editor = atom.workspace.activePaneItem
-    scopes = editor?.getCursor()?.getScopes()
+    editor = atom.workspace.getActivePaneItem()
+    scopes = editor?.getLastCursor()?.getScopeDescriptor()?.getScopesArray()
 
     return unless scopes # Give up if this happens, there may not be an open editor
 
@@ -15,6 +15,9 @@ module.exports =
 
     for scope in scopes
       scopeRange = editor.bufferRangeForScopeAtCursor(scope)
+
+      console.log("scopeRange", scopeRange)
+      console.log("scopeRange", selectionRange)
 
       if containsRange(scopeRange, selectionRange) && !sameRange(scopeRange, selectionRange)
         editor.setSelectedBufferRange(scopeRange)

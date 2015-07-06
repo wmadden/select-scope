@@ -1,11 +1,11 @@
 {
   "name": "select-scope",
   "main": "./lib/select-scope",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Select successively increasing code blocks",
-  "activationEvents": [
-    "select-scope:select-more"
-  ],
+  "activationCommands": {
+    "atom-workspace": "select-scope:select-more"
+  },
   "repository": "https://github.com/wmadden/select-scope",
   "license": "MIT",
   "engines": {
